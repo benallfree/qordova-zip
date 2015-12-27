@@ -2,7 +2,7 @@
   "name": "qordova-zip",
   "version": "1.0.0",
   "description": "Q-enabled Zip interface for Cordova",
-  "repository": "git@github.com:benallfree/qordova-zip.git",
+  "repository": "benallfree/qordova-zip",
   "main": "./build/zip",
   "scripts": {
     "build": "./node_modules/.bin/coffee -c -o ./build src/zip.coffee"

@@ -10,19 +10,22 @@ A [Q](https://github.com/kriskowal/q)-enabled HTTP for Cordova. Easier to use th
 
 # Usage
 
-## unzip: (zip\_fname, unzip\_dir)
+## unzip(zip\_fname, unzip\_dir)
 
 Unzip an archive to a destination directory.
 
 ```
-Zip.unzip(zip\_fname, unzip\_dir)
-.then(function() {
-  console.log('successfully unzipped');
-})
-.progress(function(progress) {
-  console.log('progress', progress);
-})
-.fail(function() {
-  console.log('failed to unzip');
+// Note that we must wrap inside `deviceready` because it uses Cordova features.
+document.addEventListener("deviceready", (function() {
+  Zip.unzip(zip\_fname, unzip\_dir)
+  .then(function() {
+    console.log('successfully unzipped');
+  })
+  .progress(function(progress) {
+    console.log('progress', progress);
+  })
+  .fail(function(ZipError) {
+    console.log('failed to unzip');
+  });
 });
 ```

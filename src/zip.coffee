@@ -1,5 +1,8 @@
 Q = require('q')
 
+class ZipError
+  constructor: (@zipFname, @unzipDir, @errorInfo)->
+
 class Zip
   @unzip: (zip_fname, unzip_dir) ->
     deferred = Q.defer()
@@ -7,7 +10,7 @@ class Zip
     zip.unzip(zip_fname, unzip_dir, ((err)->
       if(err)
         console.log("Error unzipping to ", unzip_dir, err)
-        deferred.reject(err)
+        deferred.reject(new ZipError(zip_fname, unzip_dir, err))
       else
         console.log("Successfully unzipped to ", unzip_dir)
         deferred.resolve()
@@ -17,4 +20,6 @@ class Zip
     ))
     deferred.promise
     
-module.exports = Zip
+module.exports =
+ Zip: Zip
+ ZipError: ZipError
