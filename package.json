@@ -1,6 +1,6 @@
 {
   "name": "qordova-zip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Q-enabled Zip interface for Cordova",
   "repository": "benallfree/qordova-zip",
   "main": "./build/zip",
